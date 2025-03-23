@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Client Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/add-client-form.css">
+	<link rel="stylesheet" href="styles/nav-bar.css">
+<script src="scripts/nav-bar.js" defer></script>
+</head>
+<body>
+
+<button id="open-nav-bar-button" aria-label="open sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#c9c9c9"><path d="M140-254.62v-50.25h680v50.25H140Zm0-200.25v-50.26h680v50.26H140Zm0-200.26v-50.25h680v50.25H140Z"/></svg></button>
+    <nav id="navbar">
+		<ul>
+		<li><a class="close-sidebar-button" aria-label="close sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+		<li><a href="index.html" class="calendar-li">Calendar</a>
+		<li><a href="client-table.html">Client Manager</a>
+		<li><a href="employee-table.html">Employee Manager</a>
+    <li><a class="active-link" href="daily-revenue.html">Daily Clients</a>
+		<li><a href="payroll.html">Daily Hours</a>
+    <li><a href="weekly-payroll.html">Weeekly Payroll</a>
+    <li><a href="expenses.html">Expenses</a>
+    <li><a href="revenue-report.html">Revenue Reports</a>
+		</ul>
+    </nav>
+<div id="overlay" aria-hidden="true"></div>
+
+
+  <div id="successMessage" class="hidden">Client Saved Successfully!</div>
+
+  <h1>Client Form</h1>
+
+  <form id="clientForm">
+    <input type="hidden" id="clientId">
+
+    <fieldset>
+      <legend>Personal Details</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" placeholder="John" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" placeholder="Doe" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" placeholder="123-456-7890" required>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Address</legend>
+      <div class="form-group">
+        <label for="street">Street:</label>
+        <input type="text" id="street" placeholder="123 Main St" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cityState">City/State:</label>
+          <input type="text" id="cityState" placeholder="Los Angeles, CA" required>
+        </div>
+        <div class="form-group">
+          <label for="zipCode">Zip Code:</label>
+          <input type="number" id="zipCode" placeholder="90001" required>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Cleaning Details</legend>
+      <div class="form-group">
+        <label for="cleaningFrequency">Cleaning Frequency:</label>
+        <select id="cleaningFrequency">
+          <option value="once">Once</option>
+          <option value="weekly">Weekly</option>
+          <option value="bi-weekly">Bi-Weekly</option>
+          <option value="every 3 weeks">Every 3 Weeks</option>
+          <option value="monthly">Monthly</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="charge">Charge ($):</label>
+          <input type="number" id="charge" placeholder="250" min="0" step="1">
+        </div>
+        <div class="form-group">
+          <label for="service">Service:</label>
+          <input type="text" id="service" placeholder="Full house">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cleaningGroup">Cleaning Group:</label>
+          <select id="cleaningGroup">
+            <option value="Group A">Group A</option>
+            <option value="Group B">Group B</option>
+				    <option value="Group C">Group C</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="zone">Zone:</label>
+          <select id="zone">
+            <option value="">Undefined</option>
+            <option value="North">North</option>
+            <option value="South">South</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" required>
+      </div>
+    </fieldset>
+  </form>
+
+  <div class="add-update-button-div">
+    <button id="addClientButton">Add/Update Client</button>
+  </div>
+	
+  <script src="scripts/client-constructor.js"></script>
+  <script src="scripts/add-client-form.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Hours</title>
+  <link rel="stylesheet" href="styles/payroll.css">
+<link rel="stylesheet" href="styles/nav-bar.css">
+<script src="scripts/nav-bar.js" defer></script>
+</head>
+<body>
+
+  <button id="open-nav-bar-button" aria-label="open sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#c9c9c9"><path d="M140-254.62v-50.25h680v50.25H140Zm0-200.25v-50.26h680v50.26H140Zm0-200.26v-50.25h680v50.25H140Z"/></svg></button>
+  <nav id="navbar">
+  <ul>
+  <li><a class="close-sidebar-button" aria-label="close sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+  <li><a href="index.html" class="calendar-li">Calendar</a>
+  <li><a href="client-table.html">Client Manager</a>
+  <li><a href="employee-table.html">Employee Manager</a>
+  <li><a class="active-link" href="daily-revenue.html">Daily Clients</a>
+  <li><a href="payroll.html">Daily Hours</a>
+  <li><a href="weekly-payroll.html">Weeekly Payroll</a>
+  <li><a href="expenses.html">Expenses</a>
+  <li><a href="revenue-report.html">Revenue Reports</a>
+  </ul>
+  </nav>
+<div id="overlay" aria-hidden="true"></div>
+
+  <h1>Daily Hours</h1>
+
+  <fieldset>
+    <legend>Select a Date and a Group</legend>
+    <label for="payrollDate">Date:</label>
+    <input type="date" id="payrollDate">
+    <label for="payrollGroup">Cleaning Group:</label>
+    <select id="payrollGroup">
+      <option value="Group A">Group A</option>
+      <option value="Group B">Group B</option>
+      <option value="Group C">Group C</option>
+      </select>
+    <button id="showEmployees">Show Employees</button>
+  </fieldset>
+
+  <div style="overflow-x:auto;">
+    <table id="payrollTable">
+      <thead>
+        <tr>
+          <th>Employee #</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Hours Worked</th>
+          <th>House Cleaned</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <button id="saveHours">Save Hours</button>
+
+  <script src="scripts/employee-constructor.js"></script>
+  <script src="scripts/client-constructor.js"></script>
+  <script src="scripts/payroll.js"></script>
+</body>
+</html>

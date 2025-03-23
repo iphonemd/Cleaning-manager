@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/add-employee-form.css">
+<link rel="stylesheet" href="styles/nav-bar.css">
+<script src="scripts/nav-bar.js" defer></script>
+</head>
+<body>
+
+  <button id="open-nav-bar-button" aria-label="open sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#c9c9c9"><path d="M140-254.62v-50.25h680v50.25H140Zm0-200.25v-50.26h680v50.26H140Zm0-200.26v-50.25h680v50.25H140Z"/></svg></button>
+  <nav id="navbar">
+  <ul>
+  <li><a class="close-sidebar-button" aria-label="close sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+  <li><a href="index.html" class="calendar-li">Calendar</a>
+  <li><a href="client-table.html">Client Manager</a>
+  <li><a href="employee-table.html">Employee Manager</a>
+  <li><a class="active-link" href="daily-revenue.html">Daily Clients</a>
+  <li><a href="payroll.html">Daily Hours</a>
+  <li><a href="weekly-payroll.html">Weeekly Payroll</a>
+  <li><a href="expenses.html">Expenses</a>
+  <li><a href="revenue-report.html">Revenue Reports</a>
+  </ul>
+  </nav>
+<div id="overlay" aria-hidden="true"></div>
+
+  <div id="successMessage" class="hidden">Employee Saved Successfully!</div>
+
+  <h1>Employee Form</h1>
+
+  <form id="employeeForm">
+    <input type="hidden" id="employeeId">
+
+    <fieldset>
+      <legend>Personal Details</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" placeholder="John" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" placeholder="Doe" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" placeholder="123-456-7890" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="john.doe@example.com" optional>
+      </div>
+      <div class="form-group">
+        <label for="hourlyRate">Hourly Rate ($):</label>
+        <input type="number" id="hourlyRate" placeholder="15" min="0" step="0.01" required>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Job Details</legend>
+      <div class="form-group">
+        <label for="jobTitle">Job Title:</label>
+        <select id="jobTitle">
+          <option value="Helper">Helper</option>
+          <option value="Leader">Leader</option>
+          <option value="Driver">Driver</option>
+          <option value="Office">Office</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="employeeNumber">Employee Number:</label>
+          <input type="text" id="employeeNumber" placeholder="EMP12345" readonly>
+        </div>
+        <div class="form-group">
+          <label for="hireDate">Hire Date:</label>
+          <input type="date" id="hireDate" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="assignedGroup">Assigned Group:</label>
+        <select id="assignedGroup">
+          <option value="Group A">Group A</option>
+          <option value="Group B">Group B</option>
+          <option value="Group C">Group C</option>
+          <option value="Group D">Group D</option>
+        </select>
+      </div>
+    </fieldset>
+  </form>
+
+  <div class="add-update-button-div">
+    <button id="addEmployeeButton">Add/Update Employee</button>
+  </div>
+
+  <script src="scripts/employee-constructor.js"></script>
+  <script src="scripts/add-employee-form.js"></script>
+
+</body>
+</html>

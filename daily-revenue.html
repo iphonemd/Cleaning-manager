@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Clients</title>
+	<link rel="stylesheet" href="styles/nav-bar.css">
+    <link rel="stylesheet" href="styles/daily-revenue.css">
+<script src="scripts/nav-bar.js" defer></script>
+</head>
+<body>
+  <button id="open-nav-bar-button" aria-label="open sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#c9c9c9"><path d="M140-254.62v-50.25h680v50.25H140Zm0-200.25v-50.26h680v50.26H140Zm0-200.26v-50.25h680v50.25H140Z"/></svg></button>
+  <nav id="navbar">
+  <ul>
+  <li><a class="close-sidebar-button" aria-label="close sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+  <li><a href="index.html" class="calendar-li">Calendar</a>
+  <li><a href="client-table.html">Client Manager</a>
+  <li><a href="employee-table.html">Employee Manager</a>
+  <li><a class="active-link" href="daily-revenue.html">Daily Clients</a>
+  <li><a href="payroll.html">Daily Hours</a>
+  <li><a href="weekly-payroll.html">Weeekly Payroll</a>
+  <li><a href="expenses.html">Expenses</a>
+  <li><a href="revenue-report.html">Revenue Reports</a>
+  </ul>
+  </nav>
+<div id="overlay" aria-hidden="true"></div>
+
+
+  <h1>Daily Clients</h1>
+  <div id="dateNavigation">
+    <input type="date" id="dateSelector">
+    <button id="todayButton">Today</button>
+  </div>
+  <button id="selectAll">Select All</button>
+  <div id="clientsTableContainer">
+    <table id="clientsTable">
+      <thead>
+        <tr>
+          <th>Select</th>
+          <th>Client</th>
+          <th>Charge</th>
+          <th>Cleaning Group</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div id="total">
+    Total for today: $<span id="totalCharge">0.00</span>
+  </div>
+  <script src="scripts/client-constructor.js"></script>
+  <script src="scripts/daily-revenue.js"></script>
+</body>
+</html>
