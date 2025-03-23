@@ -101,3 +101,7 @@ phoneNumberInput.addEventListener("keyup", () => {
 addEmployeeButton.addEventListener("click", () => window.location.href = "add-employee-form.html");
 
 populateTable(employeeManager.employees);
+
+const testEmployees = document.getElementById("testClients");
+
+testEmployees.addEventListener("click", () => generateRandomClients(50));
