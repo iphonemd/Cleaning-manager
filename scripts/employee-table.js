@@ -102,6 +102,3 @@ addEmployeeButton.addEventListener("click", () => window.location.href = "add-em
 
 populateTable(employeeManager.employees);
 
-const testEmployees = document.getElementById("testClients");
-
-testEmployees.addEventListener("click", () => generateRandomClients(50));
