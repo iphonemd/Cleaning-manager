@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  padding-bottom: 100px;
+  max-width: 600px;
+}
+
+.hidden {
+  display: none;
+}
+
+#successMessage {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: white;
+  padding: 10px, 20px;
+  border-radius: 5px;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+fieldset {
+  border-radius: 20px;
+  width: 100%;
+  max-width: 700px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+input, select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+.form-row .form-group {
+  flex: 1;
+}
+
+#addEmployeeButton {
+  position: sticky;
+  left: 50%;
+  top: 0;
+  background-color: hsl(215, 100%, 50%);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px 				rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+#addEmployeeButton:hover {
+  background-color: hsl(215, 100%, 45%);
+}
+
+#addEmployeeButton:active {
+background-color: hsl(215, 100%, 40%);
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}

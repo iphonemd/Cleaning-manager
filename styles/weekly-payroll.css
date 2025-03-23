@@ -1,0 +1,13 @@
+body{
+  background: linear-gradient(45deg, 
+  #39ff14, /* Neon Green */
+  #00ff7f, /* Bright Green */
+  #00ffff, /* Cyan */
+  #00bfff, /* Neon Blue */
+  #1e90ff /* Dodger Blue */
+);
+  margin: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  color: black;
+}
