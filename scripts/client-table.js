@@ -113,3 +113,7 @@ addClientButton.addEventListener("click", () => window.location.href = "add-clie
 
 
 populateTable(clientManager.clients);
+
+const testClients = document.getElementById("testClients");
+
+testClients.addEventListener("click", () => generateRandomClients(50));
