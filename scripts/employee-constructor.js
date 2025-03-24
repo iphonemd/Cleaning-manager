@@ -81,8 +81,9 @@ function generateRandomEmployees(count = 10) {
       const hoursToday = Math.floor(Math.random() * 8) + 2; // 2-10 hours
       
       // Create a client to associate with the hours
-      const clientManager = new ClientManager();
-      const clients = clientManager.loadClients();
+      //const clientManager = new ClientManager();
+      const clients = 0;
+      //const clients = clientManager.loadClients();
       
       // Only add client details if clients exist
       if (clients.length > 0) {

@@ -1,13 +1,73 @@
-body{
-  background: linear-gradient(45deg, 
-  #39ff14, /* Neon Green */
-  #00ff7f, /* Bright Green */
-  #00ffff, /* Cyan */
-  #00bfff, /* Neon Blue */
-  #1e90ff /* Dodger Blue */
-);
-  margin: 0;
-  height: 100vh;
-  font-family: Arial, sans-serif;
-  color: black;
+body {
+  margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 50px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+  label {
+    font-weight: bold;
+  }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  padding: 3px;
+  text-align: center;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+thead {
+  background-color: hsl(210, 100%, 57%);
+  color: white;
+  height: 50;
+  line-height: 1.5; /* Adjust based on your font size */
+  height: calc(2 * 1.5em); /* 2 lines of text */
+  white-space: normal; /* Allows text to wrap */
+  overflow: hidden; /* Hides any overflow */
+}
+
+#currentWeek {
+  background-color: hsl(215, 100%, 50%);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+#currentWeek:hover {
+  background-color: hsl(210, 100%, 42%);
+}
+
+#currentWeek:active {
+  background-color: hsl(210, 100%, 35%);
+}
+
+#dateSelector {
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: text;
+  background-color: hsl(215, 100%, 50%);
+  color: white;
+  width: 190px;
+  height: 37px;
+  padding: 7px;
+}
+
+#dateSelector::-webkit-calendar-picker-indicator {
+  color: transparent;
+  cursor: pointer;
 }

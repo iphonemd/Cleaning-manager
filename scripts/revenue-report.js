@@ -18,6 +18,18 @@ weekSelector.style.display = selectedType === "weekly" ? "block" : "none";
 
 const clientManager = new ClientManager();
 
+// set active link for nav bar
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPage = window.location.pathname.split("/").pop(); // Get current page filename
+  const navLinks = document.querySelectorAll("nav a");
+
+  navLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active-link"); // Set active link dynamically
+      }
+  });
+});
+
 function loadClients() {
   const storedClients = localStorage.getItem("clients");
   return storedClients ? JSON.parse(storedClients) : [];

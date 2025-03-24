@@ -1,6 +1,18 @@
 // employee constructor loaded on the html
 const employeeManager = new EmployeeManager();
 
+// set active link for nav bar
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPage = window.location.pathname.split("/").pop(); // Get current page filename
+  const navLinks = document.querySelectorAll("nav a");
+
+  navLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active-link"); // Set active link dynamically
+      }
+  });
+});
+
 const addEmployeeButton = document.getElementById("addEmployeeButton");
 
 const firstNameInput = document.getElementById("firstName");
@@ -101,4 +113,3 @@ phoneNumberInput.addEventListener("keyup", () => {
 addEmployeeButton.addEventListener("click", () => window.location.href = "add-employee-form.html");
 
 populateTable(employeeManager.employees);
-

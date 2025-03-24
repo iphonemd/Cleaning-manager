@@ -1,16 +1,5 @@
 // client-cleaning-tracker.js
-
-// set active link for nav bar
-document.addEventListener("DOMContentLoaded", () => {
-  const currentPage = window.location.pathname.split("/").pop(); // Get current page filename
-  const navLinks = document.querySelectorAll("nav a");
-
-  navLinks.forEach(link => {
-      if (link.getAttribute("href") === currentPage) {
-          link.classList.add("active-link"); // Set active link dynamically
-      }
-  });
-});
+// This file combines functionality from daily-revenue.js and payroll.js
 
 class ClientCleaningTracker {
   constructor() {

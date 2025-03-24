@@ -1,5 +1,4 @@
 // employee constructor loaded on html
-//gitHub
 const employeeManager = new EmployeeManager();
 const firstNameInput = document.getElementById("firstName");
 const lastNameInput = document.getElementById("lastName");
@@ -15,6 +14,22 @@ const addEmployeeButton = document.getElementById("addEmployeeButton");
 // Check for edit ID in URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 const editId = parseInt(urlParams.get('editId'));
+
+    // set active link for nav bar
+    document.addEventListener("DOMContentLoaded", () => {
+      let currentPage = window.location.pathname.split("/").pop(); // Get current page filename
+      const navLinks = document.querySelectorAll("nav a");
+    
+      navLinks.forEach(link => {
+        if (link.getAttribute("href") === "employee-table.html") {
+          currentPage = "employee-table.html"
+        }
+          if (link.getAttribute("href") === currentPage) {
+              link.classList.add("active-link"); // Set active link dynamically
+          }
+      });
+    });
+
 
 if (editId) {
   editEmployee(editId);

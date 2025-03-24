@@ -18,6 +18,7 @@ function generateRandomExpenses(count = 50) {
   // Get existing expenses or create empty array
   let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
   const originalCount = expenses.length;
+
   
   // Function to get a random date within the past 6 months
   const getRandomDate = () => {
@@ -69,6 +70,18 @@ function generateRandomExpenses(count = 50) {
   // Return the expenses if needed
   return expenses;
 }
+
+    // set active link for nav bar
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentPage = window.location.pathname.split("/").pop(); // Get current page filename
+      const navLinks = document.querySelectorAll("nav a");
+    
+      navLinks.forEach(link => {
+          if (link.getAttribute("href") === currentPage) {
+              link.classList.add("active-link"); // Set active link dynamically
+          }
+      });
+    });
 
 // Helper function to get today's date as YYYY-MM-DD string
 function getTodayDateString() {
@@ -123,8 +136,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 <td>$${expense.amount}</td>
                 <td>${expense.date}</td>
                 <td>
-                    <button onclick="editExpense(${index})">Edit</button>
-                    <button onclick="deleteExpense(${index})">Delete</button>
+                    <div class="table-buttons-div">
+                    <button class="edit-button" onclick="editExpense(${index})">Edit</button>
+                    <button class="edit-button" onclick="deleteExpense(${index})">Delete</button>
+                    </div>
                 </td>
             `;
       expenseList.appendChild(row);
@@ -224,4 +239,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   populateMonthYear();
   renderExpenses(filterExpenses());
+
+  const getReports = document.getElementById("getReports");
+getReports.addEventListener("click", () => generateRandomExpenses(100));
 });
+function resetLocal() {
+ localStorage.clear()
+}
+

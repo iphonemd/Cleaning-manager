@@ -1,5 +1,17 @@
 const clientManager = new ClientManager();
 
+// set active link for nav bar
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPage = window.location.pathname.split("/").pop(); // Get current page filename
+  const navLinks = document.querySelectorAll("nav a");
+
+  navLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active-link"); // Set active link dynamically
+      }
+  });
+});
+
 const addClientButton = document.getElementById("addClientButton");
 
 const searchFirstNameInput = document.getElementById("firstName");

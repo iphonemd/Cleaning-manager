@@ -75,3 +75,68 @@ body {
   margin: 5px 0;
   border-radius: 5px;
 }
+
+/* Enhanced Calendar Styles */
+.day.has-clients {
+  background-color: #e6f7ff;
+  font-weight: bold;
+  border: 1px solid #91d5ff;
+}
+
+.day.selected {
+  background-color: #1890ff;
+  color: white;
+  font-weight: bold;
+}
+
+.group-header {
+  background-color: #f0f0f0;
+  padding: 8px 12px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  border-radius: 4px;
+  list-style-type: none;
+}
+
+.group-clients {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.client-item {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  margin-bottom: 4px;
+  border-left: 3px solid #d9d9d9;
+  background-color: #fafafa;
+  border-radius: 0 4px 4px 0;
+  transition: all 0.3s;
+}
+
+.client-item:hover {
+  background-color: #f0f5ff;
+  border-left-color: #1890ff;
+}
+
+.client-item.completed {
+  border-left-color: #52c41a;
+}
+
+.client-name {
+  font-weight: bold;
+}
+
+.client-details {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 4px;
+}
+
+.no-clients {
+  font-style: italic;
+  color: #999;
+  text-align: center;
+  padding: 15px;
+}
