@@ -34,6 +34,7 @@ nav{
   background: var(--primary-color);
   border-bottom: 1px solid var(--hover-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
   border: none;
 }
 
@@ -56,6 +57,7 @@ nav a{
   color: var(--text-color);
   padding: 1em 2em;
   transition: background-color 150ms ease;
+  border-radius: 5px;
 }
 
 nav a:hover{
@@ -63,8 +65,20 @@ nav a:hover{
 }
 
 nav a.active-link{
-  border-bottom: 2px solid var(--text-color);
-  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--text-color);
+  background: hsla(224, 100%, 37%, 0.753);
+}
+
+.sidebar-logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90px;
+  color: white;
+  font-weight: bolder;
+  margin-left: 1em;
+  cursor: default;
+  border-right: .15em solid var(--text-color);
 }
 
 #open-nav-bar-button{
