@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Cleaning Tracker</title>
+ <link rel="stylesheet" href="styles/nav-bar.css">
+<link rel="stylesheet" href="styles/client-cleaning-tracker.css">
+<script src="scripts/nav-bar.js" defer></script>
+</head>
+<body>
+  <button id="open-nav-bar-button" aria-label="open sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M140-254.62v-50.25h680v50.25H140Zm0-200.25v-50.26h680v50.26H140Zm0-200.26v-50.25h680v50.25H140Z"/></svg></button>
+  <nav id="navbar">
+    <ul>
+      <li class="sidebar-logo">Mendez Cleaning<a class="close-sidebar-button" aria-label="close sidebar"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+      <li><a href="index.html" class="nav-link calendar-li">Calendar</a>
+      <li><a href="client-table.html" class="nav-link">Client Manager</a>
+      <li><a href="employee-table.html" class="nav-link">Employee Manager</a>
+      <li><a href="weekly-payroll.html" class="nav-link">Weekly Payroll</a>
+      <li><a href="expenses.html" class="nav-link">Expenses</a>
+      <li><a href="client-cleaning-tracker.html" class="nav-link">Daily Hours Tracker</a>
+      <li><a href="revenue-report.html" class="nav-link">Revenue Reports</a>
+    </ul>
+  </nav>
+  <div id="overlay" aria-hidden="true"></div>
+
+  <div class="container">
+    <h1>Hours/Cleaned Hoses Tracker</h1>
+    
+    <!-- Tab Navigation -->
+    <div class="tabs">
+      <div class="tab active" data-tab="daily-revenue">Houses Cleaned</div>
+      <div class="tab" data-tab="payroll">Hours Worked</div>
+    </div>
+    
+    <!-- Daily Revenue Tab -->
+    <div id="daily-revenue" class="tab-content active">
+      <div class="date-controls">
+        <label for="dateSelector">Select Date:</label>
+        <input type="date" id="dateSelector">
+        <button id="todayButton">Today</button>
+        <button id="selectAll">Select All Houses</button>
+        <div style="margin-left: auto;">
+          <button id="syncButton">Sync with Hours</button>
+        </div>
+      </div>
+      
+      <div class="notification" id="dailyNotification"></div>
+      
+      <h2>Clients for: <span id="currentDate"></span></h2>
+      
+      <table id="clientsTable">
+        <thead>
+          <tr>
+            <th>Cleaned?</th>
+            <th>Client Name</th>
+            <th>Charge</th>
+            <th>Cleaning Group</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Client rows will be inserted here by JS -->
+        </tbody>
+      </table>
+      
+      <div class="total-section">
+        Total Revenue: $<span id="totalCharge">0.00</span>
+      </div>
+    </div>
+    
+    <!-- Hours Tracker Tab -->
+    <div id="payroll" class="tab-content">
+      <div class="date-controls">
+        <label for="payrollDate">Select Date:</label>
+        <input type="date" id="payrollDate">
+        
+        <label for="payrollGroup">Cleaning Group:</label>
+        <select id="payrollGroup">
+          <option value="All">All Groups</option>
+          <option value="A">Group A</option>
+          <option value="B">Group B</option>
+          <option value="C">Group C</option>
+          <option value="D">Group D</option>
+        </select>
+        
+        <button id="showEmployees">Show Employees</button>
+        <button id="assignEmployeesButton">Auto-Assign Employees</button>
+      </div>
+      
+      <div class="notification" id="payrollNotification"></div>
+      
+      <h2>Employee Hours</h2>
+      
+      <table id="payrollTable">
+        <thead>
+          <tr>
+            <th>Employee #</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Hours</th>
+            <th>House</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Employee rows will be inserted here by JS -->
+        </tbody>
+      </table>
+      
+      <div class="action-buttons">
+        <button id="saveHours">Save Hours</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tab Switching Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.tab');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Remove active class from all tabs and contents
+          tabs.forEach(t => t.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          
+          // Add active class to current tab and corresponding content
+          this.classList.add('active');
+          const tabId = this.getAttribute('data-tab');
+          document.getElementById(tabId).classList.add('active');
+          
+          // If we have a tracker instance, save the selected date for syncing
+          if (window.tracker) {
+            window.tracker.saveSelectedDate();
+          }
+        });
+      });
+    });
+  </script>
+
+ <script src="scripts/client-constructor.js"></script>
+ <script src="scripts/employee-constructor.js"></script>
+  <script src="scripts/client-cleaning-tracker.js"></script>
+</body>
+</html>
